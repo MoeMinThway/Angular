@@ -1,0 +1,46 @@
+<h1><i class="bi bi-plus"></i> Add Student</h1>
+<div class="row">
+  <div class="col-6">
+    <img class="img-fluid" src="../../../assets/student-logo-vector.jpg" alt="" width="400px">
+
+  </div>
+  <div class="col-6">
+    <form action="#" [formGroup]="studentForm">
+      <div class="field m-1">
+        <label for="name my-5">Name</label> <br>
+
+        <div>
+          <input formControlName="name" type="text" id="name" class="my-2" placeholder="Enter Name"
+            style="width: 400px;">
+          <i class="bi bi-x p-1" *ngIf="!studentForm.get('name')?.valid"></i>
+          <i class="bi bi-check-circle p-1" *ngIf="studentForm.get('name')?.valid"></i>
+        </div>
+      </div>
+
+      <div class="field m-1">
+        <label for="Phone my-5">Phone</label> <br>
+        <input formControlName="phone" type="text" id="Phone" class="my-2" placeholder="Enter Phone"
+          style="width: 400px;">
+        <i class="bi bi-x p-1" *ngIf="!studentForm.get('phone')?.valid"></i>
+        <i class="bi bi-check-circle p-1" *ngIf="studentForm.get('phone')?.valid"></i>
+      </div>
+      <div class="field m-1">
+        <label for="Email my-5">Email</label> <br>
+        <input formControlName="email" type="email" id="Email" class="my-2" placeholder="Enter Email"
+          style="width: 400px;">
+        <i class="bi bi-x p-1" *ngIf="!studentForm.get('email')?.valid"></i>
+        <i class="bi bi-check-circle p-1" *ngIf="studentForm.get('email')?.valid"></i>
+      </div>
+      <div class="field m-1">
+        <label for="address my-5">Address</label> <br>
+        <textarea formControlName="address" name="address" id="" cols="30" rows="5" style="width: 400px;"></textarea>
+        <br>
+        <span class="mx-1">Length {{studentForm.get('address')?.value.length}} / 120</span>
+        <i class="bi bi-check-circle" *ngIf="studentForm.get('address')?.valid"></i>
+        <i class="bi bi-x" *ngIf="!studentForm.get('address')?.valid"></i>
+      </div>
+      <button [disabled]="!studentForm.valid" class="bg-warning text-white p-1 px-3" (click)="save()"><i
+          class="bi bi-save m-1 p-1"></i> Save</button>
+    </form>
+  </div>
+</div>
